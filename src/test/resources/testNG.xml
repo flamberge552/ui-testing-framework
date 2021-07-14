@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="UI Tests" verbose="1" parallel="methods" thread-count="30">
+    <listeners>
+        <listener class-name="com.poc.ui.driver.listeners.PriorityInterceptor"/>
+    </listeners>
+    <test name="Chrome">
+        <classes>
+            <class name="com.poc.ui.tests.FirstSeleniumTest"/>
+            <class name="com.poc.ui.tests.SecondSeleniumTest"/>
+            <class name="com.poc.ui.tests.ThirdSeleniumTest"/>
+        </classes>
+    </test>
+
+
+    <!--    <test name="Firefox" >-->
+    <!--        <parameter name="browser" value="FIREFOX"/>-->
+    <!--        <classes>-->
+    <!--            <class name="FirstSeleniumTest" />-->
+    <!--        </classes>-->
+    <!--    </test>-->
+</suite>

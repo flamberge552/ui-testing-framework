@@ -1,12 +1,12 @@
 package com.poc.ui.driver.core;
 
-//import com.poc.ui.driver.listeners.EventHandler;
+import com.poc.ui.driver.listeners.EventHandler;
 import com.poc.ui.utils.ReflectUtils;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public abstract class DriverManager {
     protected static ThreadLocal<EventFiringWebDriver> eDriver = new ThreadLocal<>();
-//    EventHandler handler = new EventHandler();
+    private EventHandler handler;
 
     protected abstract void createDriver();
 
@@ -23,7 +23,8 @@ public abstract class DriverManager {
     public ThreadLocal<EventFiringWebDriver> getDriver() {
         if (eDriver.get() == null) {
             createDriver();
-//            eDriver.get().register(handler);
+            handler = new EventHandler(eDriver.get());
+            eDriver.get().register(handler);
         }
         return eDriver;
     }

@@ -7,6 +7,7 @@ import com.poc.ui.utils.ReflectUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.annotations.*;
+import org.testng.xml.dom.Reflect;
 
 import java.sql.Time;
 import java.time.Instant;
@@ -24,6 +25,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUpMethod() {
+        ReflectUtils.printThreadDetails();
         driver = manager.getDriver();
     }
 

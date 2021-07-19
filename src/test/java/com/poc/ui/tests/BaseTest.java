@@ -11,6 +11,7 @@ import org.testng.xml.dom.Reflect;
 
 import java.sql.Time;
 import java.time.Instant;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 
@@ -27,6 +28,7 @@ public class BaseTest {
     public void setUpMethod() {
         ReflectUtils.printThreadDetails();
         driver = manager.getDriver();
+        getDriver().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     @AfterMethod

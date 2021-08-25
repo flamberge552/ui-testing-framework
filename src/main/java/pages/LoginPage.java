@@ -9,7 +9,6 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @Listeners(PriorityInterceptor.class)
 public class LoginPage extends BaseTest {
@@ -21,7 +20,7 @@ public class LoginPage extends BaseTest {
         //Checks if Page Title is present
         Assert.assertTrue(getDriver().findElement(By.cssSelector("div > app-login > div > h1")).isDisplayed());
         //Checks if Email field is present
-        Assert.assertTrue(getDriver().findElement(By.id("mat-input-0")).isDisplayed(), "");
+        Assert.assertTrue(getDriver().findElement(By.id("mat-input-0")).isDisplayed());
         //Checks is Password field is present
         Assert.assertTrue(getDriver().findElement(By.id("mat-input-1")).isDisplayed());
         //Checks if the View password button is present
